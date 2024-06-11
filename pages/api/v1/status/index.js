@@ -1,7 +1,9 @@
-function status(request, response) {
-  response.status(200).json({ text: "Fernando Nomellini á é í ó ú" });
+import database from "../../../../infra/database.js";
 
-  //response.status(200).send("Fernando Nomellini á é í ó ú");
+async function status(request, response) {
+  const result = await database.query("select 1+1 as soma;");
+  console.log(result.rows);
+  response.status(200).json({ text: "" });
 }
 
 export default status;
